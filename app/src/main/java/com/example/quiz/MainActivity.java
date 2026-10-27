@@ -1,6 +1,9 @@
 package com.example.quiz;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +16,12 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Pytanie> pytania;
 
+    private ImageView imageView;
+
+    private Button buttonTak, buttonNie, buttonDalej;
+
+    private TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +33,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         dodajPytania();
+        textView = findViewById(R.id.textView2);
+        buttonTak = findViewById(R.id.button);
+        buttonNie = findViewById(R.id.button4);
+        buttonDalej = findViewById(R.id.button12);
+        imageView = findViewById(R.id.imageView);
+        wypiszPytanie(0);
+    }
+    private void wypiszPytanie(int ktore){
+        Pytanie pytanko = pytania.get(ktore);
+        textView.setText(pytanko.getTrescPytania());
+        imageView.setImageResource((int)pytanko.getIdZdjecia());
     }
     private void dodajPytania() {
         pytania = new ArrayList<>();
         pytania.add(new Pytanie(R.drawable.tygrys, "Czy tygrys to fajny kotek?", true));
         pytania.add(new Pytanie(R.drawable.slon, "Czy slon spi na stojac?",false));
         pytania.add(new Pytanie(R.drawable.myszojelen, "czy myszojelen jest goated?",true));
+        pytania.add(new Pytanie(R.drawable.papuga, "czy papuga lata pod woda?",false));
+        pytania.add(new Pytanie(R.drawable.kot, "czy kot szczeka?",false));
     }
 }
