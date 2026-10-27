@@ -80,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
     private void sprawdzOdpowiedz(boolean odp) {
         if (pytania.get(aktualne).isPoprawnaOdpowiedz() == odp) {
             pytania.get(aktualne).setCzyPoprawnie(true);
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "dobrze hehe", Toast.LENGTH_SHORT).show();
         } else {
             pytania.get(aktualne).setCzyPoprawnie(false);
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "zle gamoniu!", Toast.LENGTH_SHORT).show();
         }
     }
 
